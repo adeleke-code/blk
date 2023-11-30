@@ -1,6 +1,6 @@
 import json, os, sys, time
 from django.core.management.base import BaseCommand, CommandError
-from bulk.models import SenderDetails, MessagesSent
+from bulk.models import MessagesSent
 import logging
 import psutil
 from .helpers import *
@@ -104,10 +104,9 @@ Type 'send' to start bulk sending sequence...
                 print("Message not found. Please set the message in the .env file.")
                 break
 
-            print("""File analysis complete.
-                  
+            print(""">>>>>>>>>>>>>>>>FILE ANALYSIS COMPLETE<<<<<<<<<<<<<<<<<<                  
                   """)
-            time.sleep(5)
+            time.sleep(6)
             clear()
 
         elif res == "send":
@@ -127,9 +126,10 @@ Type 'send' to start bulk sending sequence...
                   """)
             time.sleep(2)
             print(f"<<<<<<<<<{os.getenv('message').capitalize()}>>>>>>>>>>>")
-
-            
             time.sleep(5)
+            start_bulk()
+            
+
            
         
         
@@ -148,17 +148,4 @@ Type 'send' to start bulk sending sequence...
 
 
 
-
-
-
-
-def collect_sender_details():
-    while True:
-        print("Enter Sender's Name:>>>")
-        name = input()
-        print("Enter Sender's Phone Number:>>>")
-        phone = input()
-        sender = SenderDetails.objects.create(name=name, phone=phone)
-        print("Sender Details Saved.")
-        break
 

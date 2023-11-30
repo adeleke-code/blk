@@ -7,11 +7,6 @@ LABEL maintainer="Adeleke Oluwafemi"
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 
 
-# install necessary packages
-RUN apt-get update && \
-    apt-get -y install gcc && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
 
 # set the working directory
 WORKDIR /app
@@ -19,7 +14,6 @@ WORKDIR /app
 # copy the source code
 COPY . /app/
 
-RUN apt-get update && apt-get install -y netcat
 
 
 # install pip project dependencies
@@ -31,5 +25,4 @@ RUN pip install --upgrade pip && \
 EXPOSE 8000
 
 
-# Use the gunicorn_config.py as the Gunicorn configuration file
-CMD ["gunicorn", "-c", "gunicorn_config.py", "config.wsgi:application"]
+# run the application
