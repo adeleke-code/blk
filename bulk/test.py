@@ -22,6 +22,7 @@ client = Client(account_sid, auth_token)
 
 def test():
     while True:
+        
         print("""To exit, type 'exit',
                 To test input correct phone number and press enter.
             """)
@@ -29,7 +30,7 @@ def test():
         res = input(":>>>>> ")
         if res == "":
             print("Please enter a valid command.")
-            
+
         elif res == "exit":
             print("Exiting...")
             time.sleep(2)

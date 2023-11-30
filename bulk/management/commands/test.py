@@ -1,7 +1,8 @@
 from django.core.management.base import BaseCommand, CommandError
 import json
 from bulk.helpers import *
-from bulk import main
+from bulk import main, test
+
 import os
 import sys, time
 
@@ -24,8 +25,8 @@ class Command(BaseCommand):
             print (commands)
             response = input('>>>>>> ')
             if response == 'start':
-                
-                main.main()
+
+                test.test()
             elif response == 'exit':
                 self.stdout.write(self.style.SUCCESS("SESSION ENDED ... "))
                 time.sleep(2)
