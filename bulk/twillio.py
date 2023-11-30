@@ -9,17 +9,13 @@ import os, time
 load_dotenv(find_dotenv())
 
 
-TWILIO_ID = 'R35123456'
-TWILIO_TOKEN = '1234567890uysajhuasa'
+account_sid = os.getenv('ssd_id')
+auth_token = os.getenv('auth__')
 
-
-
-# account_sid = os.getenv('ssd_id')
-# auth_token = os.getenv('auth__')
-
-account_sid = TWILIO_ID
-auth_token = TWILIO_TOKEN
 client = Client(account_sid, auth_token)
+
+
+
 
 
 
